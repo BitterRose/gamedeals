@@ -3,7 +3,7 @@
 namespace GameDeals.Domain.Entity.Auth;
 public class User
 {
-	public Guid Id { get; } = Guid.NewGuid();
+	public Guid Id { get; private set; }
 
 	[Required(ErrorMessage = "Enter a username.")]
 	public string? UserName { get; init; }
@@ -18,6 +18,7 @@ public class User
 
 	public User(string userName, string password, string email, Role role)
 	{
+		Id = Guid.NewGuid();
 		UserName = userName;
 		Password = password;
 		Email = email;
