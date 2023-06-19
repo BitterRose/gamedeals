@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GameDeals.Domain.Entity.Auth;
+namespace GameDeals.Domain.Entities.Authenticate;
 public class User
 {
 	public Guid Id { get; private set; }

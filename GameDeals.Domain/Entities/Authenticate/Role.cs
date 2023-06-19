@@ -1,4 +1,4 @@
-﻿namespace GameDeals.Domain.Entity.Auth;
+﻿namespace GameDeals.Domain.Entities.Authenticate;
 public enum Role
 {
 	Admin,

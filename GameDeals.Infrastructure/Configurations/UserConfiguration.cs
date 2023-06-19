@@ -1,4 +1,4 @@
-﻿using GameDeals.Domain.Entity.Auth;
+﻿using GameDeals.Domain.Entities.Authenticate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

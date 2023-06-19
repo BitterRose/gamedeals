@@ -1,4 +1,4 @@
-﻿using GameDeals.Domain.Entity.Auth;
+﻿using GameDeals.Domain.Entities.Authenticate;
 
 namespace GameDeals.Domain.Repositories;
 public interface IUserRepository
