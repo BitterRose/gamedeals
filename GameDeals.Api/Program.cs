@@ -12,6 +12,7 @@ public static class Program
 		builder.Services.AddControllers();
 		builder.Services.AddEndpointsApiExplorer();
 		builder.Services.AddSwaggerGen();
+		builder.Services.AddProblemDetails();
 
 		builder.Services.AddApplication();
 		builder.Services.AddInfrastructure(builder.Configuration);
