@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace GameDeals.Infrastructure;
 public static class InfrastructureExtensions
@@ -21,10 +24,40 @@ public static class InfrastructureExtensions
 			options.UseSqlite(connectionString);
 		});
 
+		services.AddAuthentication(authenticationOptions =>
+		{
+			authenticationOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+			authenticationOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+			authenticationOptions.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+		})
+		.AddJwtBearer(jwtBearerOptions =>
+		{
+			jwtBearerOptions.RequireHttpsMetadata = true;
+			jwtBearerOptions.SaveToken = true;
+			jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters
+			{
+				ValidIssuer = "https://localhost:7127",
+				ValidateIssuer = true,
+
+				RequireSignedTokens = true,
+				IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("7LyqiTXsZInsa5ZW7LyqiTXsZInsa5ZW7LyqiTXsZInsa5ZW7LyqiTXsZInsa5ZW")),
+				ValidateIssuerSigningKey = true,
+
+				RequireAudience = true,
+				ValidAudience = "https://localhost:7127",
+				ValidateAudience = true,
+
+				RequireExpirationTime = true,
+				ClockSkew = TimeSpan.Zero,
+				ValidateLifetime = true,
+			};
+		});
+
 		services.AddScoped<IUsersRepository, UsersRepository>();
+		services.AddScoped<IJwtService, JwtService>();
 		services.AddSingleton<IPasswordHasher<object>, PasswordHasher<object>>();
 		services.AddSingleton<IPasswordManagerService, PasswordManagerService>();
-		services.AddSingleton<IJwtService, JwtService>();
+
 		return services;
 	}
 }
