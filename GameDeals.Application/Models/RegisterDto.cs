@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GameDeals.Domain.Entities.Authenticate;
-public class LoginDto
+namespace GameDeals.Application.Models;
+public class RegisterDto
 {
 	[EmailAddress]
 	[Required(ErrorMessage = "Enter your email.")]
@@ -12,9 +12,14 @@ public class LoginDto
 	[DataType(DataType.Password)]
 	public string Password { get; init; }
 
-	public LoginDto(string email, string password)
+	[Required(ErrorMessage = "Enter confirmation password.")]
+	[DataType(DataType.Password)]
+	public string ConfirmPassword { get; init; }
+
+	public RegisterDto(string email, string password, string confirmPassword)
 	{
 		Email = email;
 		Password = password;
+		ConfirmPassword = confirmPassword;
 	}
 }
