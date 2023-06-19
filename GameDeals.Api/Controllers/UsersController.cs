@@ -10,8 +10,11 @@ namespace GameDeals.Api.Controllers;
 public class UsersController : ControllerBase
 {
 	private readonly IUsersService _usersService;
-	public UsersController(IUsersService usersService)
+	private readonly IAuthenticationService _authenticationService;
+
+	public UsersController(IUsersService usersService, IAuthenticationService authenticationService)
 	{
+		_authenticationService = authenticationService;
 		_usersService = usersService;
 	}
 
@@ -21,7 +24,7 @@ public class UsersController : ControllerBase
 	public async Task<IActionResult> Register([FromBody] RegisterDto register)
 	{
 		await _usersService.RegisterAsync(register);
-		return Ok(register);
+		return Created(nameof(Register),null);
 	}
 
 	[HttpPost]
@@ -29,7 +32,9 @@ public class UsersController : ControllerBase
 	[Route("login")]
 	public async Task<IActionResult> Login([FromBody] LoginDto login)
 	{
-		var register = await _usersService.LoginAsync(login);
-		return Ok(register);
+		await _authenticationService.LoginAsync(login.Email, login.Password);
+		
+		var accessToken = await _usersService.GetToken(login);
+		return Ok(new {AccessToken = accessToken});
 	}
 }

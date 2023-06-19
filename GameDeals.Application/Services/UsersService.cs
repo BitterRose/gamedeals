@@ -12,7 +12,7 @@ public class UsersService : IUsersService
 		_usersRepository = usersRepository;
 	}
 
-	public async Task<string> LoginAsync(LoginDto login)
+	public async Task<string> GetToken(LoginDto login)
 	{
 		return "token";
 	}

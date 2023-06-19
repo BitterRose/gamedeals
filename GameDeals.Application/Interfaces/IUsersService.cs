@@ -4,5 +4,5 @@ namespace GameDeals.Application.Interfaces;
 public interface IUsersService
 {
 	Task RegisterAsync(RegisterDto register);
-	Task<string> LoginAsync(LoginDto login);
+	Task<string> GetToken(LoginDto login);
 }
