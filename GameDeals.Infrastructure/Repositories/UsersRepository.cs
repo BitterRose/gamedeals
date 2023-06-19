@@ -1,24 +1,21 @@
 ﻿using GameDeals.Domain.Entities.Authenticate;
 using GameDeals.Domain.Repositories;
-using GameDeals.Domain.Services;
 using GameDeals.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameDeals.Infrastructure.Repositories;
-public class UserRepository : IUserRepository
+public class UsersRepository : IUsersRepository
 {
 	private readonly ApplicationDbContext _applicationDbContext;
-	private readonly IPasswordManager _passwordManager;
 
-	public UserRepository(ApplicationDbContext applicationDbContext, IPasswordManager passwordManager)
+	public UsersRepository(ApplicationDbContext applicationDbContext)
 	{
 		_applicationDbContext = applicationDbContext;
-		_passwordManager = passwordManager;
 	}
 
 	public async Task AddAsync(string email, string password, Role role, CancellationToken cancellationToken = default)
 	{
-		User newUser = new User(email, _passwordManager.Generate(password), role);
+		User newUser = new User(email, password, role);
 		await _applicationDbContext.Users.AddAsync(newUser, cancellationToken);
 		await _applicationDbContext.SaveChangesAsync(cancellationToken);
 	}

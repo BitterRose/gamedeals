@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 
 namespace GameDeals.Infrastructure.Services;
-public class PasswordManager : IPasswordManager
+public class PasswordManagerService : IPasswordManagerService
 {
 	private readonly IPasswordHasher<object> _passwordHasher;
 
-	public PasswordManager(IPasswordHasher<object> passwordHasher)
+	public PasswordManagerService(IPasswordHasher<object> passwordHasher)
 	{
 		_passwordHasher = passwordHasher;
 	}

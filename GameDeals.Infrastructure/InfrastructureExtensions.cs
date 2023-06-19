@@ -1,5 +1,7 @@
-﻿using GameDeals.Domain.Services;
+﻿using GameDeals.Domain.Repositories;
+using GameDeals.Domain.Services;
 using GameDeals.Infrastructure.DbContexts;
+using GameDeals.Infrastructure.Repositories;
 using GameDeals.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,8 +21,10 @@ public static class InfrastructureExtensions
 			options.UseSqlite(connectionString);
 		});
 
+		services.AddScoped<IUsersRepository, UsersRepository>();
 		services.AddSingleton<IPasswordHasher<object>, PasswordHasher<object>>();
-		services.AddSingleton<IPasswordManager, PasswordManager>();
+		services.AddSingleton<IPasswordManagerService, PasswordManagerService>();
+		services.AddSingleton<IJwtService, JwtService>();
 		return services;
 	}
 }

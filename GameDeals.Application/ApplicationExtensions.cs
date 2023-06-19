@@ -5,10 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 namespace GameDeals.Application;
 public static class InfrastructureExtensions
 {
-	public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+	public static IServiceCollection AddApplication(this IServiceCollection services)
 	{
-		services.AddSingleton<IUsersService, UsersService>();
-		services.AddSingleton<IAuthenticationService, AuthenticationService>();
+		services.AddScoped<IUsersService, UsersService>();
 		return services;
 	}
 }
