@@ -31,25 +31,24 @@ namespace GameDeals.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserName")
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
-                            Id = new Guid("bfbd14a3-23aa-4acd-82aa-c3d86842c8b9"),
+                            Id = new Guid("80ec141d-c339-4ba4-bfcb-c6c31bc501b6"),
                             Email = "arkadiusz.kapalka@microsoft.wsei.edu.pl",
                             Password = "Example)98",
-                            Role = 0,
-                            UserName = "arkadiusz.kapalka"
+                            Role = "Admin"
                         });
                 });
 #pragma warning restore 612, 618

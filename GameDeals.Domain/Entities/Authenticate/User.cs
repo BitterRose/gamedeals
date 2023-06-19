@@ -5,23 +5,19 @@ public class User
 {
 	public Guid Id { get; private set; }
 
-	[Required(ErrorMessage = "Enter a username.")]
-	public string? UserName { get; init; }
+	[EmailAddress, Required(ErrorMessage = "Enter your email.")]
+	public string? Email { get; init; }
 
 	[Required(ErrorMessage = "Enter password.")]
 	public string? Password { get; init; }
 
-	[EmailAddress, Required(ErrorMessage = "Enter your email.")]
-	public string? Email { get; init; }
-
 	public Role Role { get; init; }
 
-	public User(string userName, string password, string email, Role role)
+	public User(string email, string password, Role role)
 	{
 		Id = Guid.NewGuid();
-		UserName = userName;
-		Password = password;
 		Email = email;
+		Password = password;
 		Role = role;
 	}
 

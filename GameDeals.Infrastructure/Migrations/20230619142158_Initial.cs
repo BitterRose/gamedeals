@@ -16,10 +16,9 @@ namespace GameDeals.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    UserName = table.Column<string>(type: "TEXT", nullable: false),
-                    Password = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    Role = table.Column<int>(type: "INTEGER", nullable: false)
+                    Password = table.Column<string>(type: "TEXT", nullable: false),
+                    Role = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,8 +27,14 @@ namespace GameDeals.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Email", "Password", "Role", "UserName" },
-                values: new object[] { new Guid("bfbd14a3-23aa-4acd-82aa-c3d86842c8b9"), "arkadiusz.kapalka@microsoft.wsei.edu.pl", "Example)98", 0, "arkadiusz.kapalka" });
+                columns: new[] { "Id", "Email", "Password", "Role" },
+                values: new object[] { new Guid("80ec141d-c339-4ba4-bfcb-c6c31bc501b6"), "arkadiusz.kapalka@microsoft.wsei.edu.pl", "Example)98", "Admin" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_Email",
+                table: "Users",
+                column: "Email",
+                unique: true);
         }
 
         /// <inheritdoc />

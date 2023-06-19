@@ -12,6 +12,6 @@ public class ApplicationDbContext : DbContext
 	{
 		modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 		modelBuilder.Entity<User>().HasData(
-			new User("arkadiusz.kapalka", "Example)98", "arkadiusz.kapalka@microsoft.wsei.edu.pl", Role.Admin));
+			new User("arkadiusz.kapalka@microsoft.wsei.edu.pl", "Example)98", Role.Admin));
 	}
 }
