@@ -1,4 +1,4 @@
-﻿using GameDeals.Domain.Entities.Game;
+﻿using GameDeals.Domain.Entities.Genre;
 
 namespace GameDeals.Domain.Repositories;
 public interface IGenreRepository

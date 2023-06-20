@@ -53,9 +53,9 @@ public static class InfrastructureExtensions
 			};
 		});
 
-		services.AddScoped<IUsersRepository, UsersRepository>();
+		services.AddScoped<IUserRepository, UserRepository>();
 		services.AddScoped<IGenreRepository, GenreRepository>();
-		services.AddScoped<IGamesRepository, GamesRepository>();
+		services.AddScoped<IGameRepository, GameRepository>();
 		services.AddScoped<IReviewRepository, ReviewRepository>();
 
 		services.AddScoped<IJwtService, JwtService>();

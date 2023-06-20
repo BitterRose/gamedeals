@@ -9,9 +9,9 @@ namespace GameDeals.Api.Controllers;
 [Route("api/")]
 public class UsersController : ControllerBase
 {
-	private readonly IUsersService _usersService;
+	private readonly IUserService _usersService;
 
-	public UsersController(IUsersService usersService)
+	public UsersController(IUserService usersService)
 	{
 		_usersService = usersService;
 	}

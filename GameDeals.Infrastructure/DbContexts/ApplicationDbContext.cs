@@ -1,5 +1,7 @@
 ﻿using GameDeals.Domain.Entities.Authenticate;
 using GameDeals.Domain.Entities.Game;
+using GameDeals.Domain.Entities.Genre;
+using GameDeals.Domain.Entities.Review;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameDeals.Infrastructure.DbContexts;

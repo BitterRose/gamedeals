@@ -1,7 +1,7 @@
 ﻿using GameDeals.Domain.Entities.Authenticate;
 
 namespace GameDeals.Domain.Repositories;
-public interface IUsersRepository
+public interface IUserRepository
 {
 	Task<User?> GetAsync(Guid id, CancellationToken cancellationToken = default);
 	Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken = default);

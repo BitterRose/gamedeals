@@ -1,4 +1,4 @@
-﻿using GameDeals.Domain.Entities.Game;
+﻿using GameDeals.Domain.Entities.Review;
 using GameDeals.Domain.Repositories;
 using GameDeals.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;

@@ -1,4 +1,4 @@
-﻿using GameDeals.Domain.Entities.Game;
+﻿using GameDeals.Domain.Entities.Review;
 
 namespace GameDeals.Domain.Repositories;
 public interface IReviewRepository

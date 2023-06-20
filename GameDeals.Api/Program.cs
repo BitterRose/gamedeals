@@ -51,6 +51,7 @@ public static class Program
 		builder.Services.AddInfrastructure(builder.Configuration);
 		builder.Services.AddAuthentication();
 		builder.Services.AddAuthorization();
+		builder.Services.AddScoped<ErrorHandlingMiddleware>();
 
 		var app = builder.Build();
 
@@ -60,8 +61,8 @@ public static class Program
 			app.UseSwaggerUI();
 		}
 
-		app.UseHttpsRedirection();
 		app.UseMiddleware<ErrorHandlingMiddleware>();
+		app.UseHttpsRedirection();
 		app.UseAuthentication();
 		app.UseAuthorization();
 		app.MapControllers();

@@ -1,4 +1,5 @@
 ﻿using GameDeals.Domain.Entities.Game;
+using GameDeals.Domain.Entities.Genre;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

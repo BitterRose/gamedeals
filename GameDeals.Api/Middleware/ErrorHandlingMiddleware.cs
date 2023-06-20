@@ -5,9 +5,9 @@ namespace GameDeals.Api.Middleware;
 
 public class ErrorHandlingMiddleware : IMiddleware
 {
-	private readonly ILogger _logger;
+	private readonly ILogger<ErrorHandlingMiddleware> _logger;
 
-	public ErrorHandlingMiddleware(ILogger logger)
+	public ErrorHandlingMiddleware(ILogger<ErrorHandlingMiddleware> logger)
 	{
 		_logger = logger;
 	}

@@ -4,11 +4,11 @@ using GameDeals.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameDeals.Infrastructure.Repositories;
-public class GamesRepository : IGamesRepository
+public class GameRepository : IGameRepository
 {
 	private readonly ApplicationDbContext _applicationDbContext;
 
-	public GamesRepository(ApplicationDbContext applicationDbContext)
+	public GameRepository(ApplicationDbContext applicationDbContext)
 	{
 		_applicationDbContext = applicationDbContext;
 	}

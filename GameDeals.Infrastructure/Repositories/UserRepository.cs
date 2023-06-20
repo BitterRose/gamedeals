@@ -4,11 +4,11 @@ using GameDeals.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameDeals.Infrastructure.Repositories;
-public class UsersRepository : IUsersRepository
+public class UserRepository : IUserRepository
 {
 	private readonly ApplicationDbContext _applicationDbContext;
 
-	public UsersRepository(ApplicationDbContext applicationDbContext)
+	public UserRepository(ApplicationDbContext applicationDbContext)
 	{
 		_applicationDbContext = applicationDbContext;
 	}

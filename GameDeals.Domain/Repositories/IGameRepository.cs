@@ -1,7 +1,7 @@
 ﻿using GameDeals.Domain.Entities.Game;
 
 namespace GameDeals.Domain.Repositories;
-public interface IGamesRepository
+public interface IGameRepository
 {
 	Task<IEnumerable<Game>> GetAllAsync(CancellationToken cancellationToken = default);
 	Task<Game?> GetAsync(Guid id, CancellationToken cancellationToken = default);

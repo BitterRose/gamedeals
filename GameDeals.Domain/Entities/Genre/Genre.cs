@@ -1,4 +1,4 @@
-﻿namespace GameDeals.Domain.Entities.Game;
+﻿namespace GameDeals.Domain.Entities.Genre;
 public class Genre
 {
 	public Guid Id { get; private set; }

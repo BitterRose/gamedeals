@@ -5,25 +5,25 @@ using GameDeals.Domain.Repositories;
 using GameDeals.Domain.Services;
 
 namespace GameDeals.Application.Users.Services;
-public class UsersService : IUsersService
+public class UserService : IUserService
 {
 	private readonly IPasswordManagerService _passwordManager;
-	private readonly IUsersRepository _usersRepository;
+	private readonly IUserRepository _userRepository;
 	private readonly IJwtService _jwtService;
 
-	public UsersService(
+	public UserService(
 		IPasswordManagerService passwordManager,
-		IUsersRepository usersRepository,
+		IUserRepository usersRepository,
 		IJwtService jwtService)
 	{
 		_passwordManager = passwordManager;
-		_usersRepository = usersRepository;
+		_userRepository = usersRepository;
 		_jwtService = jwtService;
 	}
 
 	public async Task<string> LoginAsync(LoginDto login)
 	{
-		User user = await _usersRepository.GetByEmailAsync(login.Email) ?? throw new InvalidDataException("Invalid username or password");
+		User user = await _userRepository.GetByEmailAsync(login.Email) ?? throw new InvalidDataException("Invalid username or password");
 
 		if (!_passwordManager.IsValid(login.Password, user.Password))
 			throw new InvalidDataException("Invalid username or password");
@@ -33,6 +33,6 @@ public class UsersService : IUsersService
 
 	public async Task RegisterAsync(RegisterDto register)
 	{
-		await _usersRepository.AddAsync(register.Email, _passwordManager.Generate(register.Password), Role.User);
+		await _userRepository.AddAsync(register.Email, _passwordManager.Generate(register.Password), Role.User);
 	}
 }

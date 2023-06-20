@@ -18,7 +18,7 @@ public class GenreService : IGenreService
 
 	public async Task CreateGenreAsync(GenreDto genre)
 	{
-		await _genreRepository.CreateAsync(new Domain.Entities.Game.Genre(genre.Name));
+		await _genreRepository.CreateAsync(new Domain.Entities.Genre.Genre(genre.Name));
 	}
 
 	public async Task<GenreDto> GetGenreAsync(Guid id)
@@ -40,6 +40,6 @@ public class GenreService : IGenreService
 
 	public async Task UpdateGenreAsync(Guid id, GenreDto genre)
 	{
-		await _genreRepository.UpdateAsync(new Domain.Entities.Game.Genre(id, genre.Name));
+		await _genreRepository.UpdateAsync(new Domain.Entities.Genre.Genre(id, genre.Name));
 	}
 }

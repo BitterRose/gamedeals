@@ -1,9 +1,9 @@
-﻿namespace GameDeals.Domain.Entities.Game;
+﻿namespace GameDeals.Domain.Entities.Review;
 public class Review
 {
 	public Guid Id { get; private set; }
 	public Guid GameId { get; init; }
-	public Game Game { get; init; }
+	public Game.Game Game { get; init; }
 	public string Title { get; init; }
 	public string? Description { get; init; }
 	public int Rating { get; init; }
