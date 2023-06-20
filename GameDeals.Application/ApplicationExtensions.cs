@@ -11,6 +11,7 @@ public static class InfrastructureExtensions
 	public static IServiceCollection AddApplication(this IServiceCollection services)
 	{
 		services.AddScoped<IUsersService, UsersService>();
+		services.AddScoped<IGenreService, GenreService>();
 		services.AddAuthorizationCore(services =>
 		{
 			services.AddPolicy("AdminRole", policy => policy.Requirements.Add(new AdminRoleRequirement()));

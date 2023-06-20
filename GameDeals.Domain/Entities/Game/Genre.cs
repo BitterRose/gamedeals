@@ -10,5 +10,11 @@ public class Genre
 		Name = name;
 	}
 
+	public Genre(Guid id, string name)
+	{
+		Id = id;
+		Name = name;
+	}
+
 	private Genre() { }
 }
