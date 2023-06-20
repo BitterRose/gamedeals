@@ -1,6 +1,6 @@
-﻿using GameDeals.Application.Models;
+﻿using GameDeals.Application.Users.Models;
 
-namespace GameDeals.Application.Interfaces;
+namespace GameDeals.Application.Users.Interfaces;
 public interface IUsersService
 {
 	Task RegisterAsync(RegisterDto register);

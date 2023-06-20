@@ -1,10 +1,10 @@
-using GameDeals.Application.Interfaces;
-using GameDeals.Application.Models;
+using GameDeals.Application.Users.Interfaces;
+using GameDeals.Application.Users.Models;
 using GameDeals.Domain.Entities.Authenticate;
 using GameDeals.Domain.Repositories;
 using GameDeals.Domain.Services;
 
-namespace GameDeals.Application.Services;
+namespace GameDeals.Application.Users.Services;
 public class UsersService : IUsersService
 {
 	private readonly IPasswordManagerService _passwordManager;

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GameDeals.Application.Models;
+namespace GameDeals.Application.Users.Models;
 public class LoginDto
 {
 	[EmailAddress]

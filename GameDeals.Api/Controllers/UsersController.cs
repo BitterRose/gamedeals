@@ -1,5 +1,5 @@
-﻿using GameDeals.Application.Interfaces;
-using GameDeals.Application.Models;
+﻿using GameDeals.Application.Users.Interfaces;
+using GameDeals.Application.Users.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
