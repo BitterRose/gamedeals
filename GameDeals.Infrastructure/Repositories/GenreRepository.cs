@@ -13,33 +13,33 @@ public class GenreRepository : IGenreRepository
 		_applicationDbContext = applicationDbContext;
 	}
 
-	public async Task CreateGenreAsync(Genre genre)
+	public async Task CreateAsync(Genre genre, CancellationToken cancellationToken = default)
 	{
 		_applicationDbContext.Genres.Add(genre);
-		await _applicationDbContext.SaveChangesAsync();
+		await _applicationDbContext.SaveChangesAsync(cancellationToken);
 	}
 
-	public async Task DeleteGenreAsync(Guid id)
+	public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
 	{
 		Genre? genre = await _applicationDbContext.Genres.FirstOrDefaultAsync(genre => genre.Id == id);
 		_applicationDbContext.Genres.Remove(genre);
-		await _applicationDbContext.SaveChangesAsync();
+		await _applicationDbContext.SaveChangesAsync(cancellationToken);
 	}
 
-	public async Task<Genre?> GetGenreAsync(Guid id)
+	public async Task<Genre?> GetAsync(Guid id, CancellationToken cancellationToken = default)
 	{
-		Genre? genre = await _applicationDbContext.Genres.FirstOrDefaultAsync(genre => genre.Id == id);
+		Genre? genre = await _applicationDbContext.Genres.FirstOrDefaultAsync(genre => genre.Id == id, cancellationToken);
 		return genre;
 	}
 
-	public async Task<IEnumerable<Genre>> GetGenresAsync()
+	public async Task<IEnumerable<Genre>> GetAllAsync(CancellationToken cancellationToken = default)
 	{
-		return await _applicationDbContext.Genres.ToListAsync();
+		return await _applicationDbContext.Genres.ToListAsync(cancellationToken);
 	}
 
-	public async Task UpdateGenreAsync(Genre genre)
+	public async Task UpdateAsync(Genre genre, CancellationToken cancellationToken = default)
 	{
 		_applicationDbContext.Genres.Update(genre);
-		await _applicationDbContext.SaveChangesAsync();
+		await _applicationDbContext.SaveChangesAsync(cancellationToken);
 	}
 }

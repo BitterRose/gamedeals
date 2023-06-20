@@ -1,5 +1,4 @@
-﻿using GameDeals.Application.Policies.AdminRole;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 
 namespace GameDeals.Application.Policies.AnyRole;
 public class AnyRoleRequirementHandler : AuthorizationHandler<AnyRoleRequirement>

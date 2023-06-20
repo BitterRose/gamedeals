@@ -25,7 +25,7 @@ public static class Program
 				BearerFormat = "JWT",
 				Description = "Authorization using the Bearer scheme.",
 			});
-			
+
 			swaggerGenOptions.AddSecurityRequirement(new OpenApiSecurityRequirement
 			{
 				{

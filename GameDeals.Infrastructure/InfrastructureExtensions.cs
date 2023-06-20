@@ -55,6 +55,9 @@ public static class InfrastructureExtensions
 
 		services.AddScoped<IUsersRepository, UsersRepository>();
 		services.AddScoped<IGenreRepository, GenreRepository>();
+		services.AddScoped<IGamesRepository, GamesRepository>();
+		services.AddScoped<IReviewRepository, ReviewRepository>();
+
 		services.AddScoped<IJwtService, JwtService>();
 		services.AddSingleton<IPasswordHasher<object>, PasswordHasher<object>>();
 		services.AddSingleton<IPasswordManagerService, PasswordManagerService>();

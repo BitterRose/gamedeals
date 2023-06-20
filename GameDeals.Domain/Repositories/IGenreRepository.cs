@@ -3,9 +3,9 @@
 namespace GameDeals.Domain.Repositories;
 public interface IGenreRepository
 {
-	Task<IEnumerable<Genre>> GetGenresAsync();
-	Task<Genre?> GetGenreAsync(Guid id);
-	Task CreateGenreAsync(Genre genre);
-	Task UpdateGenreAsync(Genre genre);
-	Task DeleteGenreAsync(Guid id);
+	Task<IEnumerable<Genre>> GetAllAsync(CancellationToken cancellationToken = default);
+	Task<Genre?> GetAsync(Guid id, CancellationToken cancellationToken = default);
+	Task CreateAsync(Genre genre, CancellationToken cancellationToken = default);
+	Task UpdateAsync(Genre genre, CancellationToken cancellationToken = default);
+	Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
 }

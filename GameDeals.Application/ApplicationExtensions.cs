@@ -1,11 +1,11 @@
 ﻿using GameDeals.Application.Genre.Interfaces;
 using GameDeals.Application.Genre.Services;
-using GameDeals.Application.Users.Interfaces;
-using GameDeals.Application.Users.Services;
-using Microsoft.Extensions.DependencyInjection;
 using GameDeals.Application.Policies.AdminRole;
 using GameDeals.Application.Policies.AnyRole;
+using GameDeals.Application.Users.Interfaces;
+using GameDeals.Application.Users.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GameDeals.Application;
 public static class InfrastructureExtensions

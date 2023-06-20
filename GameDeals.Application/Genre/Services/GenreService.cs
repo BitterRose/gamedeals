@@ -13,23 +13,23 @@ public class GenreService : IGenreService
 
 	public async Task DeleteGenreAsync(Guid id)
 	{
-		await _genreRepository.DeleteGenreAsync(id);
+		await _genreRepository.DeleteAsync(id);
 	}
 
 	public async Task CreateGenreAsync(GenreDto genre)
 	{
-		await _genreRepository.CreateGenreAsync(new Domain.Entities.Game.Genre(genre.Name));
+		await _genreRepository.CreateAsync(new Domain.Entities.Game.Genre(genre.Name));
 	}
 
 	public async Task<GenreDto> GetGenreAsync(Guid id)
 	{
-		var genreDto = await _genreRepository.GetGenreAsync(id);
+		var genreDto = await _genreRepository.GetAsync(id);
 		return new GenreDto(genreDto.Id, genreDto.Name);
 	}
 
 	public async Task<IEnumerable<GenreDto>> GetGenresAsync()
 	{
-		var genres = await _genreRepository.GetGenresAsync();
+		var genres = await _genreRepository.GetAllAsync();
 		var genreDtos = new List<GenreDto>();
 		foreach (var genre in genres)
 		{
@@ -40,6 +40,6 @@ public class GenreService : IGenreService
 
 	public async Task UpdateGenreAsync(Guid id, GenreDto genre)
 	{
-		await _genreRepository.UpdateGenreAsync(new Domain.Entities.Game.Genre(id, genre.Name));
+		await _genreRepository.UpdateAsync(new Domain.Entities.Game.Genre(id, genre.Name));
 	}
 }
