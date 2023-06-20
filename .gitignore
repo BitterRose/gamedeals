@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/GameDeals.Api/ApplicationDatabase.db
+/GameDeals.Api/ApplicationDatabase.db-shm
+/GameDeals.Api/ApplicationDatabase.db-wal

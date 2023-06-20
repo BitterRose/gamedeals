@@ -1,11 +1,12 @@
 using GameDeals.Application;
 using GameDeals.Infrastructure;
+using GameDeals.Infrastructure.DbContexts;
 
 namespace GameDeals.Api;
 
 public static class Program
 {
-	public static void Main(string[] args)
+	public static async Task Main(string[] args)
 	{
 		var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,7 @@ public static class Program
 		app.UseAuthentication();
 		app.UseAuthorization();
 		app.MapControllers();
+		await app.SeedContext();
 
 		app.Run();
 	}

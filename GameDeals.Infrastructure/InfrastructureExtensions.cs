@@ -3,11 +3,11 @@ using GameDeals.Domain.Services;
 using GameDeals.Infrastructure.DbContexts;
 using GameDeals.Infrastructure.Repositories;
 using GameDeals.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
