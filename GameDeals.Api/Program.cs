@@ -1,3 +1,4 @@
+using GameDeals.Api.Middleware;
 using GameDeals.Application;
 using GameDeals.Infrastructure;
 using GameDeals.Infrastructure.DbContexts;
@@ -60,6 +61,7 @@ public static class Program
 		}
 
 		app.UseHttpsRedirection();
+		app.UseMiddleware<ErrorHandlingMiddleware>();
 		app.UseAuthentication();
 		app.UseAuthorization();
 		app.MapControllers();
