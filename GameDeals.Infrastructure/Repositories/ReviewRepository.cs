@@ -27,9 +27,9 @@ public class ReviewRepository : IReviewRepository
 		await _applicationDbContext.SaveChangesAsync(cancellationToken);
 	}
 
-	public async Task<IEnumerable<Review>> GetAllAsync(CancellationToken cancellationToken = default)
+	public async Task<IEnumerable<Review>> GetAllByGameIdAsync(Guid gameId, CancellationToken cancellationToken = default)
 	{
-		return await _applicationDbContext.Reviews.ToListAsync(cancellationToken);
+		return await _applicationDbContext.Reviews.Where(review => review.GameId == gameId).ToListAsync(cancellationToken);
 	}
 
 	public async Task<Review?> GetAsync(Guid id, CancellationToken cancellationToken = default)

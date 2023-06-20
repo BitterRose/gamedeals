@@ -5,7 +5,7 @@ public interface IGenreService
 {
 	Task<IEnumerable<GenreDto>> GetGenresAsync();
 	Task<GenreDto> GetGenreAsync(Guid id);
-	Task CreateGenreAsync(GenreDto genre);
+	Task<Guid> CreateGenreAsync(GenreDto genre);
 	Task UpdateGenreAsync(Guid id, GenreDto genre);
 	Task DeleteGenreAsync(Guid id);
 

@@ -21,7 +21,13 @@ public class GenreController : ControllerBase
 	public async Task<IActionResult> GetAllGenre()
 	{
 		var genres = await _genreService.GetGenresAsync();
-		return Ok(genres);
+		var response = genres.Select(x =>
+		new {
+			x.GenreId,
+			x.Name
+		});
+
+		return Ok(response);
 	}
 
 	[HttpGet("{id}")]
@@ -50,8 +56,12 @@ public class GenreController : ControllerBase
 		if (genreDto is null)
 			return BadRequest();
 
-		await _genreService.CreateGenreAsync(genreDto);
-		return CreatedAtAction(nameof(CreateGenre), genreDto);
+		var genre = await _genreService.CreateGenreAsync(genreDto);
+		return CreatedAtAction(nameof(CreateGenre), new
+		{
+			id = genre,
+			genreDto.Name
+		});
 	}
 
 	[HttpPut("{id}")]

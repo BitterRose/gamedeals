@@ -11,9 +11,11 @@ public class ReviewService : IReviewService
 		_reviewRepository = reviewRepository;
 	}
 
-	public async Task CreateAsync(ReviewDto reviewDto)
+	public async Task<Guid> CreateAsync(ReviewDto reviewDto)
 	{
-		await _reviewRepository.CreateAsync(new Domain.Entities.Review.Review(reviewDto.GameId, reviewDto.Title, reviewDto.Description, reviewDto.Rating));
+		var review = new Domain.Entities.Review.Review(reviewDto.GameId, reviewDto.Title, reviewDto.Description, reviewDto.Rating);
+		await _reviewRepository.CreateAsync(review);
+		return review.Id;
 	}
 
 	public async Task DeleteAsync(Guid id)
@@ -21,19 +23,19 @@ public class ReviewService : IReviewService
 		await _reviewRepository.DeleteAsync(id);
 	}
 
-	public async Task<ReviewDto> GetAsync(Guid id)
+	public async Task<ReviewDto> GetByIdAsync(Guid id)
 	{
 		var reviewDto = await _reviewRepository.GetAsync(id);
 		return new ReviewDto(reviewDto.GameId, reviewDto.Title, reviewDto.Description, reviewDto.Rating);
 	}
 
-	public async Task<IEnumerable<ReviewDto>> GetAsync()
+	public async Task<IEnumerable<ReviewDto>> GetAllByGameIdAsync(Guid gameId)
 	{
-		var reviews = await _reviewRepository.GetAllAsync();
+		var reviews = await _reviewRepository.GetAllByGameIdAsync(gameId);
 		var reviewDtos = new List<ReviewDto>();
 		foreach (var review in reviews)
 		{
-			reviewDtos.Add(new ReviewDto(review.GameId, review.Title, review.Description, review.Rating));
+			reviewDtos.Add(new ReviewDto(review.Id, review.GameId, review.Title, review.Description, review.Rating));
 		}
 		return reviewDtos;
 	}

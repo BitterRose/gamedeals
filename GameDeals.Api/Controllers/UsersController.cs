@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GameDeals.Api.Controllers;
 
 [ApiController]
-[Route("api/")]
+[Route("api/users")]
 public class UsersController : ControllerBase
 {
 	private readonly IUserService _usersService;

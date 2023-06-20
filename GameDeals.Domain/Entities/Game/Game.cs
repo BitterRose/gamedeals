@@ -19,5 +19,15 @@ public class Game
 		Price = price;
 	}
 
+	public Game(Guid id, string name, Genre.Genre genre, string description, byte[]? imageUrl, decimal price)
+	{
+		Id = id;
+		Name = name;
+		Genre = genre;
+		Description = description;
+		ImageUrl = imageUrl;
+		Price = price;
+	}
+
 	private Game() { }
 }

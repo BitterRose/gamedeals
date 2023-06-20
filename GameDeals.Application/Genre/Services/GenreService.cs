@@ -16,9 +16,11 @@ public class GenreService : IGenreService
 		await _genreRepository.DeleteAsync(id);
 	}
 
-	public async Task CreateGenreAsync(GenreDto genre)
+	public async Task<Guid> CreateGenreAsync(GenreDto genre)
 	{
-		await _genreRepository.CreateAsync(new Domain.Entities.Genre.Genre(genre.Name));
+		var response = new Domain.Entities.Genre.Genre(genre.Name);
+		await _genreRepository.CreateAsync(response);
+		return response.Id;
 	}
 
 	public async Task<GenreDto> GetGenreAsync(Guid id)
