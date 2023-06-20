@@ -5,11 +5,11 @@ public class Game
 	public string Name { get; init; }
 	public Genre Genre { get; init; }
 	public string Description { get; init; }
-	public string? ImageUrl { get; init; }
+	public byte[]? ImageUrl { get; init; }
 	public decimal Price { get; init; }
-	public virtual List<Review> Reviews { get; init; }
+	public IReadOnlyList<Review> Reviews { get; init; } = new List<Review>();
 
-	public Game(string name, Genre genre, string description, string? imageUrl, decimal price)
+	public Game(string name, Genre genre, string description, byte[]? imageUrl, decimal price)
 	{
 		Id = Guid.NewGuid();
 		Name = name;

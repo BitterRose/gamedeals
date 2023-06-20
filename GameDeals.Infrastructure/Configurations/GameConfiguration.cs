@@ -11,7 +11,7 @@ public class GameConfiguration : IEntityTypeConfiguration<Game>
 
 		builder.Property(property => property.Genre)
 			.IsRequired()
-			.HasConversion(property => $"{property}",
+			.HasConversion(property => property.Name,
 			  genre => new Genre(genre));
 
 		builder.Property(property => property.Name)
@@ -21,6 +21,15 @@ public class GameConfiguration : IEntityTypeConfiguration<Game>
 			.IsRequired();
 
 		builder.Property(property => property.Price)
+			.IsRequired();
+
+		builder.Property(property => property.ImageUrl)
+			.HasConversion(builder => Convert.ToBase64String(builder),
+						  builder => Convert.FromBase64String(builder));
+
+		builder.HasMany(property => property.Reviews)
+			.WithOne(property => property.Game)
+			.HasForeignKey(key => key.GameId)
 			.IsRequired();
 	}
 }
