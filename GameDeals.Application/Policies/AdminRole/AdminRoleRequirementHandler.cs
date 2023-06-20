@@ -9,6 +9,6 @@ internal class AdminRoleRequirementHandler : AuthorizationHandler<AdminRoleRequi
 		{
 			context.Succeed(requirement);
 		}
-		return Task.CompletedTask;
+        return Task.CompletedTask;
 	}
 }
