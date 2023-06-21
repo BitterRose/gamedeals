@@ -99,4 +99,4 @@ Swagger dostępny pod adresem `https://localhost:7127/swagger/index.html`
 Przez publiczne API można dodać tylko użytkowników w roli User, natomiast istnieje w systemie jeden użytkownik do testów w roli Administratora, który jest dodawany automatycznie podczas migracji oraz który ma dostęp do wszystkich endpointów.
 
 - login: `arkadiusz.kapalka@microsoft.wsei.edu.pl`
-- hasło: `Password)98`
+- hasło: `Example)98`
