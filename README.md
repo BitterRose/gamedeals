@@ -95,3 +95,8 @@ Swagger dostępny pod adresem `https://localhost:7127/swagger/index.html`
 |api/Game/  | POST    |Dodawanie konkretnej gry, autogenerowane pole ID|
 |api/Game/1 | GET     |Zwraca jedną grę według pola Id|
 |api/Game/1 | PUT     |Aktualizacja gry po polu Id|
+
+Przez publiczne API można dodać tylko użytkowników w roli User, natomiast istnieje w systemie jeden użytkownik do testów w roli Administratora, który jest dodawany automatycznie podczas migracji oraz który ma dostęp do wszystkich endpointów.
+
+- login: `arkadiusz.kapalka@microsoft.wsei.edu.pl`
+- hasło: `Password)98`
